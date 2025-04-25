@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block hero %}
+    <!-- HERO -->
+    <div class="jumbotron text-center mt-4">
+      <h1 class="display-4">Открой Кыргызстан с нами</h1>
+      <p class="lead">Невероятные пейзажи, древняя культура и настоящие приключения ждут тебя</p>
+      <p class="mt-5 w-50 mx-auto">Исследуй горные тропы, кристально чистые озёра и самобытные традиции. Подарите себе путешествие, которое запомнится навсегда!</p>
+    </div>
+{% endblock hero %}
+
+{% block content %}
+    <!-- CARDS -->
+    <div class="row mt-5" data-test="cards">
+        {% for tour in tours %}
+        <div class="col-4" data-test="card">
+            <div class="card mb-3" >
+                <img src="{{ tour.image.url }}" style="height:232px;" class="card-img-top img-fluid" data-test="picture">
+                <div class="card-body">
+                    <h5 class="card-title"><a href="{{ tour.get_absolute_url }}" target="_blank">{{ tour.title }}</a></h5>
+                    <p class="card-text card-p">{{ tour.description }}</p>
+                    <a href="{{ tour.get_absolute_url }}" target="_blank" class="btn btn-sm btn-primary" data-test="tourlink">Подробнее</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+<div class="col-md-5 mx-auto">
+    {% include 'includes/paginator.html' %}
+</div>
+{% endblock content %}
+
+

@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% include "includes/_modal.html" %}
+
+<h1 class="display-3 mt-4" data-test="title">{{ tour.title }}  {{ tour.stars }} ★</h1>
+
+    <p class="lead" data-test="lead"><span data-test="country">{{ tour.destination.name }} </span><span data-text="departure">{{ tour.departure }}</span>
+        {% if tour.nights >= 4 %}
+        <span data-text="nights">{{ tour.nights }}</span> ночей</p>
+        {% elif 2 > tour.nights > 0 %}
+        <span data-text="nights">{{ tour.nights }}</span> ночь</p>
+        {% else %}
+        <span data-text="nights">{{ tour.nights }}</span> ночи</p>
+        {% endif %}
+    <img data-test="picture" src="{{ tour.image.url }}" class="w-75" alt="">
+    
+    <p class="my-4 w-75" data-test="description">{{ tour.description }}</p>
+
+    <button id="buy-book" class="btn btn-primary" type="button" name="button">
+        Купить тур за
+        <span data-test="price">{{ tour.price }}</span>
+    </button>
+    <br>
+    <br>
+{% endblock %}
+
+{% block extrascripts %}
+<script type="text/javascript">
+    $(document).ready(function() {
+    
+        $("#buy-book").modalForm({
+            formURL: "{% url 'tours:buy_tour' tour.slug %}"
+        });
+    
+    });
+    </script>
+{% endblock extrascripts %}
