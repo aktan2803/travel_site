@@ -21,7 +21,7 @@
 Клонирование проекта
 
 ```bash
-  git clone https://github.com/we5h/travel_site.git
+  git clone https://github.com/aktan2803/travel_site.git
 ```
 
 Переход в директорию проекта
@@ -41,8 +41,3 @@
 ```bash
   python travel_site/travel_site/manage.py runserver
 ```
-
-
-## Автор
-
-- Дмитрий Грибков [@we5h](https://www.github.com/we5h)
