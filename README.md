@@ -11,9 +11,9 @@
 
 ## Технологии проекта
 
-**Lang:** Python 3.10
+**Lang:** Python 3.11
 
-**Server:** Django 4.1.3
+**Server:** Django 4.13
 
 
 ## Запуск проекта
